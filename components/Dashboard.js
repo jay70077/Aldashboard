@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment, useState } from 'react';
+import React, {Fragment, useState,useEffect } from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -28,6 +28,7 @@ import ApiIntegration from '../Utils/ApiIntegration'
 const Dashboard = () => {
     const [data, setData] = useState([]);
 
+   useEffect(()=>{
         ApiIntegration.dashboardApi()
             .then((response)=>{
                 console.log('response',response);
@@ -35,6 +36,8 @@ const Dashboard = () => {
             }).catch((err)=>{
             console.log('error',err);
         });
+
+    });
 
     renderItem=(data)=>{
        return(
