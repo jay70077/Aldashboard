@@ -38,11 +38,15 @@ const Dashboard = () => {
         });
 
     });
-
     renderItem=(data)=>{
        return(
            <ScrollView>
-               {data}
+             <View style={styles.mainView}>
+                <Text style={styles.mainView}> hlkjlkjljk{data.data.author}</Text>
+                <Text style={styles.mainView}> {data.data.data.digital_count}</Text>
+                 <Text style={styles.mainView}>{data.data.data.ff_count}</Text>
+                 <Text style={styles.mainView}>{data.data.data.f2f_count}</Text>
+             </View>
            </ScrollView>
        )
     };
@@ -57,10 +61,11 @@ const Dashboard = () => {
     );
 };
 
+export default Dashboard;
 const styles = StyleSheet.create({
-    scrollView: {
-        backgroundColor: Colors.lighter,
+    mainView:{
+        fontSize: 18,
+        fontWeight: '400',
+        color: Colors.dark,
     }
 });
-
-export default Dashboard;
