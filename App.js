@@ -24,27 +24,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Dashboard from "./components/Dashboard";
+import Test from "./components/test";
 
 const App = () => {
   return (
 
         <ScrollView>
-
-            <View style={styles.myView}>
-              <Text>
-                my name is athony
-                asdfsdfsd
-              </Text>
-              <Text>
-                my name is athony
-                asdfsdfsd
-              </Text>
-              <Text>
-                my name is athony
-                asdfsdfsd
-              </Text>
-              <Dashboard/>
-            </View>
+          <Dashboard/>
+          <Test/>
         </ScrollView>
 
   );

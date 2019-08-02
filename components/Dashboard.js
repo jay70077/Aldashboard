@@ -27,43 +27,40 @@ import {
 import ApiIntegration from '../Utils/ApiIntegration'
 const Dashboard = () => {
     const [data, setData] = useState([]);
-
-   useEffect(()=>{
+    useEffect(()=>{
         ApiIntegration.dashboardApi()
             .then((response)=>{
                 console.log('response',response);
-                setData(response);
+                setData(response.data);
             }).catch((err)=>{
             console.log('error',err);
         });
 
     });
-    renderItem=(data)=>{
-       return(
-           <ScrollView>
-             <View style={styles.mainView}>
-                <Text style={styles.mainView}> hlkjlkjljk{data.data.author}</Text>
-                <Text style={styles.mainView}> {data.data.data.digital_count}</Text>
-                 <Text style={styles.mainView}>{data.data.data.ff_count}</Text>
-                 <Text style={styles.mainView}>{data.data.data.f2f_count}</Text>
-             </View>
-           </ScrollView>
-       )
-    };
+
 
     return (
-        <ScrollView>
-            <FlatList
-                data={data}
-                renderItem={this.renderItem}
-            />
-        </ScrollView>
+        <View style={styles.mainView}>
+            {/*{data}*/}
+            <Text style={styles.myText}> hlkjlkjljk{data.author}</Text>
+            <Text style={styles.myText}> {data.length == 0 ? '' : data.data.digital_count}</Text>
+            <Text style={styles.myText}>{data.length == 0? '' : data.data.ff_count}</Text>
+            <Text style={styles.myText}>{data.length == 0 ? '' : data.data.f2f_count}</Text>
+        </View>
     );
+
+
+
 };
 
 export default Dashboard;
 const styles = StyleSheet.create({
     mainView:{
+
+        flex:1,
+        justifyContent:'center'
+    },
+    myText:{
         fontSize: 18,
         fontWeight: '400',
         color: Colors.dark,
