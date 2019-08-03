@@ -17,13 +17,13 @@ import {
     Image
 } from 'react-native';
 
-const Header = () => {
+const Myheader = () => {
 
     return (
             <View style={styles.mainView}>
-                 <View style={{position:'relative',left:'10'}}>
+                 <View style={{paddingLeft:10,paddingTop:15}}>
                      <Image
-                         style={{width: 50, height: 50}}
+                         style={{width: 30, height: 30,borderRadius:15}}
                          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
                      />
                  </View>
@@ -35,13 +35,14 @@ const Header = () => {
 
 };
 
-export default Header;
+export default Myheader;
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
-        height:80,
+        height:60,
         flexDirection:'row',
-        backgroundColor:'gray'
+        backgroundColor:'blue',
+        marginBottom:20,
     }
 
 });

@@ -24,8 +24,9 @@ import {
     DebugInstructions,
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import Header from './Header'
 import ApiIntegration from '../Utils/ApiIntegration'
+// eslint-disable-next-line no-unused-vars
+import Myheader from './Header'
 const Dashboard = () => {
     const [data, setData] = useState([]);
     useEffect(()=>{
@@ -42,7 +43,7 @@ const Dashboard = () => {
 
     return (
         <ScrollView>
-            <Header/>
+            <Myheader/>
         <View style={styles.mainView}>
            <View style={styles.buttons}>
                <View style={{width:100}}>
@@ -70,7 +71,7 @@ const Dashboard = () => {
            </View>
             <View style={styles.mainBox}>
                 <Text style={styles.myText}> Total Numner of People Impact</Text>
-                <Text style={styles.myValue}> {data.author}</Text>
+                <Text style={styles.myValue}> 200</Text>
             </View>
 
            <View style={styles.mainBox}>
