@@ -6,14 +6,21 @@
  * @flow
  */
 
+// eslint-disable-next-line no-unused-vars
 import React, {Fragment, useState,useEffect } from 'react';
 import {
+    // eslint-disable-next-line no-unused-vars
     SafeAreaView,
     StyleSheet,
-    ScrollView,
+    // eslint-disable-next-line no-unused-vars
+    TouchableOpacity,
+    // eslint-disable-next-line no-unused-vars
     View,
+    // eslint-disable-next-line no-unused-vars
     Text,
+    // eslint-disable-next-line no-unused-vars
     Button,
+    // eslint-disable-next-line no-unused-vars
     Image
 } from 'react-native';
 
@@ -22,10 +29,11 @@ const Myheader = () => {
     return (
             <View style={styles.mainView}>
                  <View style={{paddingLeft:10,paddingTop:15}}>
-                     <Image
-                         style={{width: 30, height: 30,borderRadius:15}}
-                         source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
-                     />
+                     <TouchableOpacity onPress={this.props.navigation.openDrawer}>
+                    <Text style={styles.hamburger}></Text>
+                     <Text style={styles.hamburger}></Text>
+                     <Text style={styles.hamburger}></Text>
+                     </TouchableOpacity>
                  </View>
             </View>
 
@@ -36,6 +44,7 @@ const Myheader = () => {
 };
 
 export default Myheader;
+
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
@@ -43,6 +52,14 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         backgroundColor:'blue',
         marginBottom:20,
+    },
+    hamburger:{
+        width: 26,
+        height: 3,
+        backgroundColor: 'gray',
+        marginTop:3,
+        marginBottom: 3,
+        borderRadius:2,
     }
 
 });
