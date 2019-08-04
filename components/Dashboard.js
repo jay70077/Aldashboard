@@ -6,22 +6,33 @@
  * @flow
  */
 
-import React, {Fragment, useState,useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
+import React, {useState,useEffect } from 'react';
 import {
+    // eslint-disable-next-line no-unused-vars
     SafeAreaView,
     StyleSheet,
+    // eslint-disable-next-line no-unused-vars
     ScrollView,
+    // eslint-disable-next-line no-unused-vars
     View,
+    // eslint-disable-next-line no-unused-vars
     Text,
+    // eslint-disable-next-line no-unused-vars
     Button,
+    // eslint-disable-next-line no-unused-vars
     FlatList
 } from 'react-native';
 
 import {
+    // eslint-disable-next-line no-unused-vars
     Header,
+    // eslint-disable-next-line no-unused-vars
     LearnMoreLinks,
     Colors,
+    // eslint-disable-next-line no-unused-vars
     DebugInstructions,
+    // eslint-disable-next-line no-unused-vars
     ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import ApiIntegration from '../Utils/ApiIntegration'
@@ -29,6 +40,9 @@ import ApiIntegration from '../Utils/ApiIntegration'
 import Myheader from './Header'
 const Dashboard = () => {
     const [data, setData] = useState([]);
+    // eslint-disable-next-line no-unused-vars,no-undef
+    const [navdata, setnavData]=useState(props.navigation);
+
     useEffect(()=>{
         ApiIntegration.dashboardApi()
             .then((response)=>{
@@ -43,7 +57,7 @@ const Dashboard = () => {
 
     return (
         <ScrollView>
-            <Myheader/>
+            <Myheader mynav={navdata}/>
         <View style={styles.mainView}>
            <View style={styles.buttons}>
                <View style={{width:100}}>

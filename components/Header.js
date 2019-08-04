@@ -8,6 +8,7 @@
 
 // eslint-disable-next-line no-unused-vars
 import React, {Fragment, useState,useEffect } from 'react';
+
 import {
     // eslint-disable-next-line no-unused-vars
     SafeAreaView,
@@ -23,13 +24,16 @@ import {
     // eslint-disable-next-line no-unused-vars
     Image
 } from 'react-native';
+// eslint-disable-next-line no-unused-vars
+import DrawerNav from "./DrawerNav";
 
 const Myheader = () => {
 
     return (
             <View style={styles.mainView}>
                  <View style={{paddingLeft:10,paddingTop:15}}>
-                     <TouchableOpacity onPress={this.props.navigation.openDrawer}>
+                     {/* eslint-disable-next-line no-undef */}
+                     <TouchableOpacity onPress={props.mynav.navigation.openDrawer()}>
                     <Text style={styles.hamburger}></Text>
                      <Text style={styles.hamburger}></Text>
                      <Text style={styles.hamburger}></Text>
@@ -44,7 +48,6 @@ const Myheader = () => {
 };
 
 export default Myheader;
-
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
