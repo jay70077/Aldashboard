@@ -33,7 +33,7 @@ const Myheader = () => {
             <View style={styles.mainView}>
                  <View style={{paddingLeft:10,paddingTop:15}}>
                      {/* eslint-disable-next-line no-undef */}
-                     <TouchableOpacity onPress={props.mynav.navigation.openDrawer()}>
+                     <TouchableOpacity >
                     <Text style={styles.hamburger}></Text>
                      <Text style={styles.hamburger}></Text>
                      <Text style={styles.hamburger}></Text>
