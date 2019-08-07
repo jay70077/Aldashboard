@@ -27,12 +27,12 @@ import {
 import ApiIntegration from '../Utils/ApiIntegration'
 // eslint-disable-next-line no-unused-vars
 import Myheader from './Header'
-const Chart = () => {
+const Chart = (props) => {
 
 
     return (
         <ScrollView>
-            <Myheader/>
+            <Myheader passNavData={props.navigation}/>
             <View style={styles.mainView}>
                 <Text>
                     Chart

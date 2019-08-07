@@ -24,16 +24,15 @@ import {
     // eslint-disable-next-line no-unused-vars
     Image
 } from 'react-native';
-// eslint-disable-next-line no-unused-vars
-import DrawerNav from "./DrawerNav";
 
-const Myheader = () => {
+
+const Myheader = (props) => {
 
     return (
             <View style={styles.mainView}>
                  <View style={{paddingLeft:10,paddingTop:15}}>
                      {/* eslint-disable-next-line no-undef */}
-                     <TouchableOpacity >
+                     <TouchableOpacity onPress={()=>props.passNavData.openDrawer()}>
                     <Text style={styles.hamburger}></Text>
                      <Text style={styles.hamburger}></Text>
                      <Text style={styles.hamburger}></Text>

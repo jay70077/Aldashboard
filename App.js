@@ -9,13 +9,13 @@
 // eslint-disable-next-line no-unused-vars
 import React, {Fragment} from 'react';
 import {
-  SafeAreaView,
-  StyleSheet,
+    SafeAreaView,
+    StyleSheet,
     // eslint-disable-next-line no-unused-vars
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
+    ScrollView,
+    View,
+    Text,
+    StatusBar, TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -23,27 +23,26 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 // eslint-disable-next-line no-unused-vars
 
-import DrawerNav from "./components/DrawerNav";
 import {createDrawerNavigator, DrawerItems} from "react-navigation";
 import Dashboard from "./components/Dashboard";
-import Chart from "./components/chart";
-// eslint-disable-next-line no-unused-vars
-
+import Chart from './components/chart'
 
 const App = () => {
   return (
-
-        <View>
           <MyDrawerNavigator/>
-        <Dashboard/>
-        </View>
-
   );
 };
 const contentDrawer= (props)=>(
     <View>
       <View>
-
+          <View style={{paddingLeft:10,paddingTop:15,justifyContent: 'center',alignItems:'center'}}>
+              {/* eslint-disable-next-line no-undef */}
+              <TouchableOpacity >
+                  <Text style={styles.hamburger}></Text>
+                  <Text style={styles.hamburger}></Text>
+                  <Text style={styles.hamburger}></Text>
+              </TouchableOpacity>
+          </View>
       </View>
       <ScrollView >
         <DrawerItems {...props}/>
@@ -52,7 +51,7 @@ const contentDrawer= (props)=>(
 
 );
 
-export const MyDrawerNavigator = createDrawerNavigator({
+ const MyDrawerNavigator = createDrawerNavigator({
       HOME: Dashboard,
       CHART: Chart,
 
@@ -61,12 +60,12 @@ export const MyDrawerNavigator = createDrawerNavigator({
       contentComponent:contentDrawer,
       initialRouteName: 'HOME',
       drawerWidth:250,
-      drawerBackgroundColor:'#0d0d0d',
+      drawerBackgroundColor:'gray',
       contentOptions: {
         activeTintColor: 'white',
         inactiveTintColor:'white',
-        activeBackgroundColor:'#0d0d0d',
-        inactiveBackgroundColor:'#0d0d0d',
+        activeBackgroundColor:'gray',
+        inactiveBackgroundColor:'gray',
         itemsContainerStyle: {
           marginVertical: 0,
           alignItems:'center'
@@ -88,6 +87,14 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center'
   },
+    hamburger:{
+        width: 26,
+        height: 3,
+        backgroundColor: 'black',
+        marginTop:3,
+        marginBottom: 3,
+        borderRadius:2,
+    }
 });
 
 export default App;

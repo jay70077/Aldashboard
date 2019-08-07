@@ -82,7 +82,7 @@ render() {
     var dataRows = this.state.mydata;
     return (
         <ScrollView>
-            <Myheader/>
+            <Myheader passNavData={this.props.navigation}/>
             <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
                 <Picker
                     mode="dropdown"
