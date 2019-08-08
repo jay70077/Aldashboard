@@ -40,6 +40,7 @@ import ApiIntegration from '../Utils/ApiIntegration'
 import Myheader from './Header'
 import _extends from "@babel/runtime/helpers/esm/extends";
 import { Icon, Picker, Form } from "native-base";
+import TableData from "./tableData";
 
 
 export default class Dashboard extends Component {
@@ -177,24 +178,7 @@ render() {
                     <Text style={styles.myValue}>{ dataRows.length ==0  ? '' : dataRows.data.f2f_count}</Text>
                 </View>
                 </View>
-
-                {/*<View style={styles.tables}>*/}
-                {/*    <View style={{flex:0.3,padding:10,borderBottomColor:'gray',borderWidth:0.4}}>*/}
-                {/*       <Text>*/}
-                {/*           test*/}
-                {/*       </Text>*/}
-                {/*    </View>*/}
-                {/*    <View style={{flex:0.3,padding:10,borderBottomColor:'gray',borderWidth:0.4}}>*/}
-                {/*        <Text>*/}
-                {/*            test*/}
-                {/*        </Text>*/}
-                {/*    </View>*/}
-                {/*    <View style={{flex:0.3,padding:10,borderBottomColor:'gray',borderWidth:0.4}}>*/}
-                {/*        <Text>*/}
-                {/*            test*/}
-                {/*        </Text>*/}
-                {/*    </View>*/}
-                {/*</View>*/}
+<TableData/>
             </View>
         </ScrollView>
     );
