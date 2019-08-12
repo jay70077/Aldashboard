@@ -95,7 +95,7 @@ render() {
                 >
                     <Picker.Item label="Wallet" value="key0" />
                     <Picker.Item label="All RDMSs" value="key1" />
-                    <Picker.Item label="Debit Card" value="key2" />
+                    <Picker.Item label="Varun Ramesh" value="key2" />
                     <Picker.Item label="Credit Card" value="key3" />
                     <Picker.Item label="Net Banking" value="key4" />
                 </Picker>
@@ -109,11 +109,11 @@ render() {
                     selectedValue={this.state.selected1}
                     onValueChange={this.onValueChange.bind(this)}
                 >
-                    <Picker.Item label="Wallet" value="key0" />
-                    <Picker.Item label="ATM Card" value="key1" />
+                    <Picker.Item label="EP" value="key0" />
+                    <Picker.Item label="CHC" value="key1" />
                     <Picker.Item label="All Business Units" value="key2" />
-                    <Picker.Item label="Credit Card" value="key3" />
-                    <Picker.Item label="Net Banking" value="key4" />
+                    <Picker.Item label="Diabetes" value="key3" />
+                    <Picker.Item label="Pasteur/Super specialty" value="key4" />
                 </Picker>
             </View>
             <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
@@ -125,11 +125,10 @@ render() {
                     selectedValue={this.state.selected2}
                     onValueChange={this.onValueChange.bind(this)}
                 >
-                    <Picker.Item label="Wallet" value="key0" />
-                    <Picker.Item label="ATM Card" value="key1" />
-                    <Picker.Item label="Debit Card" value="key2" />
+                    <Picker.Item label="FM" value="key1" />
+                    <Picker.Item label="AM" value="key2" />
                     <Picker.Item label="All Target audiences" value="key3" />
-                    <Picker.Item label="Net Banking" value="key4" />
+                    <Picker.Item label="RBM" value="key4" />
                 </Picker>
             </View>
             <View style={styles.mainView}>
