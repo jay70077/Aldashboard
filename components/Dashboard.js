@@ -58,9 +58,16 @@ export default class Dashboard extends Component {
     // eslint-disable-next-line no-unused-vars,no-undef
     //const [navdata, setnavData]=useState(props.navigation);
 
-    onValueChange(value: string) {
-        this.setState({
-            selected: value
+    onValueChange=(value)=> {
+        ApiIntegration.filterData(value)
+            .then((data)=>{
+                console.log('response',data);
+                this.setState({
+                    selected1: value,
+                    mydata:data.data
+                });
+            }).catch((error)=>{
+            console.log('error',error);
         });
     }
 
@@ -91,13 +98,10 @@ render() {
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected}
-                    onValueChange={this.onValueChange.bind(this)}
+                    onValueChange={this.onValueChange}
                 >
-                    <Picker.Item label="Wallet" value="key0" />
                     <Picker.Item label="All RDMSs" value="key1" />
                     <Picker.Item label="Varun Ramesh" value="key2" />
-                    <Picker.Item label="Credit Card" value="key3" />
-                    <Picker.Item label="Net Banking" value="key4" />
                 </Picker>
             </View>
             <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
@@ -107,11 +111,11 @@ render() {
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected1}
-                    onValueChange={this.onValueChange.bind(this)}
+                    onValueChange={this.onValueChange}
                 >
                     <Picker.Item label="EP" value="key0" />
                     <Picker.Item label="CHC" value="key1" />
-                    <Picker.Item label="All Business Units" value="key2" />
+                    <Picker.Item label="All Business Units" value="1" />
                     <Picker.Item label="Diabetes" value="key3" />
                     <Picker.Item label="Pasteur/Super specialty" value="key4" />
                 </Picker>
@@ -123,7 +127,7 @@ render() {
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected2}
-                    onValueChange={this.onValueChange.bind(this)}
+                    onValueChange={this.onValueChange}
                 >
                     <Picker.Item label="FM" value="key1" />
                     <Picker.Item label="AM" value="key2" />
@@ -164,17 +168,17 @@ render() {
 
                 <View style={styles.mainBox}>
                     <Text style={styles.myText}> Digital Count</Text>
-                    <Text style={styles.myValue}> { dataRows.length ==0  ? '' : dataRows.data.digital_count}</Text>
+                    <Text style={styles.myValue}> { dataRows.length ==0  ? '' : dataRows.digital_count}</Text>
                 </View>
                 </View >
                 <View style={{flex:1,flexDirection: 'row'}}>
                 <View style={styles.mainBox}>
                     <Text style={styles.myText}> FF Count</Text>
-                    <Text style={styles.myValue}>{dataRows.length ==0  ? '' :  dataRows.data.ff_count}</Text>
+                    <Text style={styles.myValue}>{dataRows.length ==0  ? '' :  dataRows.ff_count}</Text>
                 </View>
                 <View style={styles.mainBox}>
                     <Text style={styles.myText}> F2F Count</Text>
-                    <Text style={styles.myValue}>{ dataRows.length ==0  ? '' : dataRows.data.f2f_count}</Text>
+                    <Text style={styles.myValue}>{ dataRows.length ==0  ? '' : dataRows.f2f_count}</Text>
                 </View>
                 </View>
 <TableData/>

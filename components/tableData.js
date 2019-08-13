@@ -27,6 +27,7 @@ import {
 import ApiIntegration from '../Utils/ApiIntegration'
 // eslint-disable-next-line no-unused-vars
 import Myheader from './Header'
+import Dropdown from "./Dropdown";
 const TableData = (props) => {
     const [data, setData] = useState([]);
 
@@ -67,7 +68,7 @@ const TableData = (props) => {
                         F2F/DIGITAL
                     </Text>
                     <Text style={styles.tableData}>
-                        { data.length ===0  ? '' : data.data.f2f_count}
+                        { data.length ===0  ? '' : data.f2f_count}
                     </Text>
                     <Text style={styles.tableData}>
                         test
@@ -84,7 +85,7 @@ const TableData = (props) => {
                         FF COUNT
                     </Text>
                     <Text style={styles.tableData}>
-                        { data.length ===0  ? '' : data.data.ff_count}
+                        { data.length ===0  ? '' : data.ff_count}
                     </Text>
                     <Text style={styles.tableData}>
                         test
