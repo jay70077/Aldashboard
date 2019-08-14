@@ -48,9 +48,9 @@ export default class Dashboard extends Component {
        super(props);
        this.state = {
            mydata: [],
-           selected: "key1",
-           selected1: "key2",
-           selected2: "key3"
+           selected: "",
+           selected1: "",
+           selected2: ""
        }
 
 
@@ -59,6 +59,19 @@ export default class Dashboard extends Component {
     //const [navdata, setnavData]=useState(props.navigation);
 
     onValueChange=(value)=> {
+        ApiIntegration.filterUser(value)
+            .then((data)=>{
+                console.log('response',data);
+                this.setState({
+                    selected: value,
+                    mydata:data.data
+                });
+            }).catch((error)=>{
+            console.log('error',error);
+        });
+    };
+
+    onValueChange1=(value)=> {
         ApiIntegration.filterData(value)
             .then((data)=>{
                 console.log('response',data);
@@ -69,7 +82,19 @@ export default class Dashboard extends Component {
             }).catch((error)=>{
             console.log('error',error);
         });
-    }
+    };
+    onValueChange2=(value)=> {
+        ApiIntegration.filterTarget(value)
+            .then((data)=>{
+                console.log('response',data);
+                this.setState({
+                    selected2: value,
+                    mydata:data.data
+                });
+            }).catch((error)=>{
+            console.log('error',error);
+        });
+    };
 
     componentDidMount(){
         ApiIntegration.dashboardApi()
@@ -100,8 +125,8 @@ render() {
                     selectedValue={this.state.selected}
                     onValueChange={this.onValueChange}
                 >
-                    <Picker.Item label="All RDMSs" value="key1" />
-                    <Picker.Item label="Varun Ramesh" value="key2" />
+                    <Picker.Item label="All RDMSs" value="1" />
+                    <Picker.Item label="Varun Ramesh" value="2" />
                 </Picker>
             </View>
             <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
@@ -111,13 +136,13 @@ render() {
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected1}
-                    onValueChange={this.onValueChange}
+                    onValueChange={this.onValueChange1}
                 >
-                    <Picker.Item label="EP" value="key0" />
-                    <Picker.Item label="CHC" value="key1" />
+
                     <Picker.Item label="All Business Units" value="1" />
-                    <Picker.Item label="Diabetes" value="key3" />
-                    <Picker.Item label="Pasteur/Super specialty" value="key4" />
+                    <Picker.Item label="EP" value="2" />
+                    <Picker.Item label="CHC" value="4" />
+                    <Picker.Item label="Pasteur/Super specialty" value="3" />
                 </Picker>
             </View>
             <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
@@ -127,12 +152,12 @@ render() {
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected2}
-                    onValueChange={this.onValueChange}
+                    onValueChange={this.onValueChange2}
                 >
-                    <Picker.Item label="FM" value="key1" />
-                    <Picker.Item label="AM" value="key2" />
-                    <Picker.Item label="All Target audiences" value="key3" />
-                    <Picker.Item label="RBM" value="key4" />
+                    <Picker.Item label="FM" value="1" />
+                    <Picker.Item label="AM" value="2" />
+                    <Picker.Item label="All Target audiences" value="3" />
+                    <Picker.Item label="RBM" value="4" />
                 </Picker>
             </View>
             <View style={styles.mainView}>
@@ -181,7 +206,37 @@ render() {
                     <Text style={styles.myValue}>{ dataRows.length ==0  ? '' : dataRows.f2f_count}</Text>
                 </View>
                 </View>
-<TableData/>
+                <View style={styles.mainView}>
+                    <View style={styles.first}>
+                        <Text style={styles.tableheader}>
+                            EVENT NAME
+                        </Text>
+                        <Text style={styles.tableData}>
+                            PFIT/EXPOSE
+                        </Text>
+
+                    </View>
+                    <View style={styles.first}>
+                        <Text style={styles.tableheader}>
+                            F2F/DIGITAL
+                        </Text>
+                        <Text style={styles.tableData}>
+                            { dataRows.length ===0  ? '' : dataRows.f2f_count}
+                        </Text>
+
+                    </View>
+                    <View style={styles.first}>
+                        <Text style={styles.tableheader}>
+                            FF COUNT
+                        </Text>
+                        <Text style={styles.tableData}>
+                            { dataRows.length ===0  ? '' : dataRows.ff_count}
+                        </Text>
+
+                    </View>
+
+
+                </View>
             </View>
         </ScrollView>
     );
@@ -237,6 +292,25 @@ const styles = StyleSheet.create({
        position:'relative',
         right:10,
 
-    }
+    },
+    first:{
+        flex:0.33,
+        marginEnd:1,
+    },
+    tableheader:{
+        fontSize:14,
+        fontWeight: '600',
+        borderBottomWidth:0.6,
+        backgroundColor:'gray',
+        paddingBottom:10,
+        paddingTop:10,
+        paddingLeft:10
+
+    },
+    tableData:{
+        padding:10,
+        marginBottom:1,
+        backgroundColor: 'lightgray'
+    },
 
 });
