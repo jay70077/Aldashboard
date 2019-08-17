@@ -116,7 +116,7 @@ render() {
     return (
         <ScrollView>
             <Myheader passNavData={this.props.navigation}/>
-            <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
+            <View style={styles.boxDropdown}>
                 <Picker
                     mode="dropdown"
                     iosHeader="Select your SIM"
@@ -129,7 +129,7 @@ render() {
                     <Picker.Item label="Varun Ramesh" value="2" />
                 </Picker>
             </View>
-            <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
+            <View style={styles.boxDropdown}>
                 <Picker
                     mode="dropdown"
                     iosHeader="Select your SIM"
@@ -145,7 +145,7 @@ render() {
                     <Picker.Item label="Pasteur/Super specialty" value="3" />
                 </Picker>
             </View>
-            <View style={{flex:1,marginLeft: 20,borderBottomColor:'gray',borderBottomWidth:0.6,marginBottom:20,marginRight: 20}}>
+            <View style={styles.boxDropdown}>
                 <Picker
                     mode="dropdown"
                     iosHeader="Select your SIM"
@@ -162,33 +162,39 @@ render() {
             </View>
             <View style={styles.mainView}>
                 <View style={styles.buttons}>
-                    <View style={{width: 100}}>
+                    <View style={styles.buttonstyle}>
                         <Button
                             title="Monthly"
-                            color="blue"
-                            accessibilityLabel="Monthly"
+                            accessibilityLabel="Yearly"
+                            style={styles.buttonStyle}
+                            color={"#00bfff"}
+
                         />
                     </View>
-                    <View style={{width: 100}}>
+                    <View style={styles.buttonstyle}>
                         <Button
                             title="Quaterly"
-                            color="gray"
                             accessibilityLabel="Quaterly"
+                            style={styles.buttonStyle}
+                            color={"#00bfff"}
+
                         />
                     </View>
-                    <View style={{width: 100}}>
+                    <View style={styles.buttonstyle}>
                         <Button
-                            title="Yearly"
-                            color="green"
+                            title="Monthly"
                             accessibilityLabel="Yearly"
+                            style={styles.buttonStyle}
+                            color={"#00bfff"}
+
                         />
                     </View>
 
                 </View>
                 <View style={{flex:1,flexDirection: 'row'}}>
                 <View style={styles.mainBox}>
-                    <Text style={styles.myText}> Total Numner of People Impact</Text>
-                    <Text style={styles.myValue}> 200</Text>
+                    <Text style={styles.myText}>People Impacted</Text>
+                    <Text style={styles.myValue}> {dataRows.length ==0  ? '' :  dataRows.ff_count}</Text>
                 </View>
 
                 <View style={styles.mainBox}>
@@ -206,33 +212,30 @@ render() {
                     <Text style={styles.myValue}>{ dataRows.length ==0  ? '' : dataRows.f2f_count}</Text>
                 </View>
                 </View>
-                <View style={styles.mainView}>
+                <View style={styles.mainViewtable}>
                     <View style={styles.first}>
                         <Text style={styles.tableheader}>
                             EVENT NAME
                         </Text>
-                        <Text style={styles.tableData}>
-                            PFIT/EXPOSE
+                        <Text style={styles.tableheader}>
+                            F2F/DIGITAL
                         </Text>
+                        <Text style={styles.tableheader}>
+                            FF COUNT
+                        </Text>
+
 
                     </View>
                     <View style={styles.first}>
-                        <Text style={styles.tableheader}>
-                            F2F/DIGITAL
+                        <Text style={styles.tableData}>
+                            PFIT/EXPOSE
                         </Text>
                         <Text style={styles.tableData}>
                             { dataRows.length ===0  ? '' : dataRows.f2f_count}
                         </Text>
-
-                    </View>
-                    <View style={styles.first}>
-                        <Text style={styles.tableheader}>
-                            FF COUNT
-                        </Text>
                         <Text style={styles.tableData}>
                             { dataRows.length ===0  ? '' : dataRows.ff_count}
                         </Text>
-
                     </View>
 
 
@@ -289,28 +292,62 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:'row-reverse',
         marginBottom: 20,
-       position:'relative',
-        right:10,
+        position:'relative',
+        right:20,
+
+
 
     },
     first:{
-        flex:0.33,
+        flex:1,
         marginEnd:1,
+        flexDirection:'row'
+    },
+    boxDropdown:{
+        flex:1,
+        marginLeft: 20,
+        borderColor:'lightgray',
+        marginBottom:20,
+        marginRight: 20,
+        borderWidth:0.6,
+        borderRadius: 8,
     },
     tableheader:{
-        fontSize:14,
-        fontWeight: '600',
-        borderBottomWidth:0.6,
-        backgroundColor:'gray',
+        fontSize:16,
+        fontWeight: '800',
+        borderColor:'lightgray',
+        backgroundColor:'#00bfff',
+        borderWidth:0.8,
+        color:'white',
+        marginBottom:-1,
         paddingBottom:10,
         paddingTop:10,
-        paddingLeft:10
+        paddingLeft:10,
+        flex:0.5,
+        marginLeft:-1,
+        textAlign: 'center'
 
     },
     tableData:{
         padding:10,
-        marginBottom:1,
-        backgroundColor: 'lightgray'
+        marginBottom:0,
+        borderColor:'lightgray',
+        marginLeft:-1,
+        borderWidth:0.8,
+        flex:0.5,
+        textAlign: 'center'
     },
+    buttonstyle:{
+        width:100,
+        marginLeft:5,
+        borderRadius:10
+    },
+    mainViewtable:{
+        flex:1,
+        margin:10
+    },
+    buttonStyle:{
+        color:'white'
+    }
 
 });

@@ -13,6 +13,7 @@ import {
     StyleSheet,
     // eslint-disable-next-line no-unused-vars
     ScrollView,
+    Image,
     View,
     Text,
     StatusBar, TouchableOpacity,
@@ -35,12 +36,12 @@ const App = () => {
 const contentDrawer= (props)=>(
     <View>
       <View>
-          <View style={{paddingLeft:10,paddingTop:15,justifyContent: 'center',alignItems:'center'}}>
+          <View style={{paddingLeft:10,paddingTop:15,alignItems:'center',justifyContent: 'center'}}>
               {/* eslint-disable-next-line no-undef */}
               <TouchableOpacity >
-                  <Text style={styles.hamburger}></Text>
-                  <Text style={styles.hamburger}></Text>
-                  <Text style={styles.hamburger}></Text>
+                  <Image
+                      style={{width: 40, height: 40,borderRadius: 20}}
+                      source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}/>
               </TouchableOpacity>
           </View>
       </View>
@@ -52,20 +53,20 @@ const contentDrawer= (props)=>(
 );
 
  const MyDrawerNavigator = createDrawerNavigator({
-      HOME: Dashboard,
-      CHART: Chart,
+      DASHBOARD: Dashboard,
+      CHART:Chart,
 
     },
     {
       contentComponent:contentDrawer,
-      initialRouteName: 'HOME',
+      initialRouteName: 'DASHBOARD',
       drawerWidth:250,
-      drawerBackgroundColor:'gray',
+      drawerBackgroundColor:'#00bfff',
       contentOptions: {
         activeTintColor: 'white',
         inactiveTintColor:'white',
-        activeBackgroundColor:'gray',
-        inactiveBackgroundColor:'gray',
+        activeBackgroundColor:'#00bfff',
+        inactiveBackgroundColor:'#00bfff',
         itemsContainerStyle: {
           marginVertical: 0,
           alignItems:'center'
