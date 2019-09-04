@@ -7,7 +7,7 @@
  */
 
 // eslint-disable-next-line no-unused-vars
-import React, {Fragment} from 'react';
+import React, {Component} from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -19,9 +19,6 @@ import {
     StatusBar, TouchableOpacity,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
 // eslint-disable-next-line no-unused-vars
 
 import {createDrawerNavigator, DrawerItems} from "react-navigation";

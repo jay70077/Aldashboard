@@ -24,21 +24,9 @@ import {
     FlatList
 } from 'react-native';
 
-import {
-    // eslint-disable-next-line no-unused-vars
-    Header,
-    // eslint-disable-next-line no-unused-vars
-    LearnMoreLinks,
-    Colors,
-    // eslint-disable-next-line no-unused-vars
-    DebugInstructions,
-    // eslint-disable-next-line no-unused-vars
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import ApiIntegration from '../Utils/ApiIntegration'
-// eslint-disable-next-line no-unused-vars
 import Myheader from './Header'
-import _extends from "@babel/runtime/helpers/esm/extends";
+
 import { Icon, Picker, Form } from "native-base";
 import TableData from "./tableData";
 
@@ -281,12 +269,12 @@ const styles = StyleSheet.create({
     myText:{
         fontSize: 18,
         fontWeight: '400',
-        color: Colors.dark,
+        color: '#696969',
     },
     myValue:{
         fontSize: 25,
         fontWeight: '800',
-        color: Colors.dark,
+        color: '#696969',
     },
     buttons:{
         flex:1,
@@ -300,7 +288,6 @@ const styles = StyleSheet.create({
     },
     first:{
         flex:1,
-        marginEnd:1,
         flexDirection:'row'
     },
     boxDropdown:{

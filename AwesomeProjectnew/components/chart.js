@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment, useState,useEffect } from 'react';
+import React, {Component} from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -16,38 +16,30 @@ import {
     Button,
     FlatList
 } from 'react-native';
-
-import {
-    Header,
-    LearnMoreLinks,
-    Colors,
-    DebugInstructions,
-    ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import ApiIntegration from '../Utils/ApiIntegration'
-// eslint-disable-next-line no-unused-vars
 import Myheader from './Header'
-const Chart = (props) => {
+export default class Chart extends Component {
 
 
-    return (
-        <ScrollView>
-            <Myheader passNavData={props.navigation}/>
-            <View style={styles.mainView}>
-                <Text>
-                    Chart
-                </Text>
+    render(){
+        return (
+            <ScrollView>
+                <Myheader passNavData={this.props.navigation}/>
+                <View style={styles.mainView}>
+                    <Text>
+                        Chart
+                    </Text>
 
-            </View>
+                </View>
 
-        </ScrollView>
-    );
+            </ScrollView>
+        );
 
+    }
 
 
 };
 
-export default Chart;
+
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
@@ -69,12 +61,12 @@ const styles = StyleSheet.create({
     myText:{
         fontSize: 18,
         fontWeight: '400',
-        color: Colors.dark,
+        color: 'gray',
     },
     myValue:{
         fontSize: 25,
         fontWeight: '800',
-        color: Colors.dark,
+        color: 'gray',
     },
     buttons:{
         flex:1,

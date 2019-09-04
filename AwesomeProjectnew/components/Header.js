@@ -7,7 +7,7 @@
  */
 
 // eslint-disable-next-line no-unused-vars
-import React, {Fragment, useState,useEffect } from 'react';
+import React, {Component } from 'react';
 
 import {
     // eslint-disable-next-line no-unused-vars
@@ -26,27 +26,28 @@ import {
 } from 'react-native';
 
 
-const Myheader = (props) => {
+export default class Myheader extends Component {
 
-    return (
-            <View style={styles.mainView}>
-                 <View style={{paddingLeft:10,paddingTop:15}}>
-                     {/* eslint-disable-next-line no-undef */}
-                     <TouchableOpacity onPress={()=>props.passNavData.openDrawer()}>
-                    <Text style={styles.hamburger}></Text>
-                     <Text style={styles.hamburger}></Text>
-                     <Text style={styles.hamburger}></Text>
-                     </TouchableOpacity>
-                 </View>
-            </View>
+  render(){
+      return (
+          <View style={styles.mainView}>
+              <View style={{paddingLeft:10,paddingTop:15}}>
+                  {/* eslint-disable-next-line no-undef */}
+                  <TouchableOpacity onPress={()=>this.props.passNavData.openDrawer()}>
+                      <Text style={styles.hamburger}></Text>
+                      <Text style={styles.hamburger}></Text>
+                      <Text style={styles.hamburger}></Text>
+                  </TouchableOpacity>
+              </View>
+          </View>
 
-    );
+      );
+  }
 
 
 
 };
 
-export default Myheader;
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
