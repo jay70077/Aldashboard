@@ -23,7 +23,7 @@ import {
 
 import {createDrawerNavigator, DrawerItems} from "react-navigation";
 import Dashboard from "./components/Dashboard";
-import Chart from './components/chart'
+import ChartData from './components/chart'
 
 export default class AppNew extends Component {
   render(){
@@ -55,7 +55,7 @@ const contentDrawer= (props)=>(
 
  const MyDrawerNavigator = createDrawerNavigator({
       DASHBOARD: Dashboard,
-      CHART:Chart,
+      CHART:ChartData,
 
     },
     {

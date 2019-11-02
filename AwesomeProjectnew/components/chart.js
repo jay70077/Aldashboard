@@ -7,6 +7,7 @@
  */
 
 import React, {Component} from 'react';
+import Pie from 'react-native-pie'
 import {
     SafeAreaView,
     StyleSheet,
@@ -16,11 +17,11 @@ import {
     Button,
     FlatList
 } from 'react-native';
-import Myheader from './Header'
-export default class Chart extends Component {
-
-
+import Myheader from './Header';
+import BarChart from "./BarChart";
+export default class ChartData extends Component {
     render(){
+
         return (
             <ScrollView>
                 <Myheader passNavData={this.props.navigation}/>
@@ -28,9 +29,13 @@ export default class Chart extends Component {
                     <Text>
                         Chart
                     </Text>
+                    <Pie
+                        radius={100}
+                        series={[10, 20, 30, 40]}
+                        colors={['red', 'lime', 'blue', 'yellow']} />
 
+                        <BarChart/>
                 </View>
-
             </ScrollView>
         );
 
@@ -43,7 +48,8 @@ export default class Chart extends Component {
 const styles = StyleSheet.create({
     mainView:{
         flex:1,
-        justifyContent:'center'
+        justifyContent:'center',
+        paddingLeft:15
     },
     mainBox:{
         flex:1,
