@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import PureChart from 'react-native-pure-chart';
-
+const myData = require( '../Utils/data.json');
 import {
     SafeAreaView,
     StyleSheet,
@@ -20,40 +20,51 @@ import {
 } from 'react-native';
 
 export default class BarChart extends Component {
+    dataFunction(){
+        return(
+            myData.data.map((data)=>{
+                console.log(data.ff_count);
+                return (
+                    <Text>
+                        {
+                            data.ff_count
+                        }
+                    </Text>
+                )
+            })
+        )
+    }
+
     render(){
+        myData.data.map((data)=>{
+            console.log(data.ff_count);
+            return(
+                <Text>
+                    x : {data.ff_count}
+                    y : {data.no_min}
+                </Text>
+            )
+        })
         let sampleData = [
             {
                 seriesName: 'series1',
                 data: [
-                    {x: '2018-02-01', y: 30},
-                    {x: '2018-02-02', y: 200},
-                    {x: '2018-02-03', y: 170},
-                    {x: '2018-02-04', y: 250},
-                    {x: '2018-02-05', y: 10}
+                    {x: 'ff_count', y:  10},
+                    {x: 'zoom', y: 200},
                 ],
                 color: '#297AB1'
-            },
-            {
-                seriesName: 'series2',
-                data: [
-                    {x: '2018-02-01', y: 20},
-                    {x: '2018-02-02', y: 100},
-                    {x: '2018-02-03', y: 140},
-                    {x: '2018-02-04', y: 550},
-                    {x: '2018-02-05', y: 40}
-                ],
-                color: 'yellow'
             }
-        ]
+        ];
         return (
             <View style={styles.mainView}>
                 <PureChart data={sampleData} type='bar' />
-
+                {
+                    this.dataFunction()
+                }
             </View>
         );
 
     }
-
 
 };
 

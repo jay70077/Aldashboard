@@ -27,12 +27,12 @@ export default class ChartData extends Component {
                 <Myheader passNavData={this.props.navigation}/>
                 <View style={styles.mainView}>
                     <Text>
-                        Chart
+                        Chart2
                     </Text>
-                    <Pie
-                        radius={100}
-                        series={[10, 20, 30, 40]}
-                        colors={['red', 'lime', 'blue', 'yellow']} />
+                    {/*<Pie*/}
+                    {/*    radius={100}*/}
+                    {/*    series={[10, 20, 30, 40]}*/}
+                    {/*    colors={['red', 'lime', 'blue', 'yellow']} />*/}
 
                         <BarChart/>
                 </View>
