@@ -20,6 +20,13 @@ import {
 } from 'react-native';
 
 export default class BarChart extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            sampleData:[]
+        }
+    }
+
     dataFunction(){
         return(
             myData.data.map((data)=>{
@@ -36,28 +43,30 @@ export default class BarChart extends Component {
     }
 
     render(){
+        var obj ={};
         myData.data.map((data)=>{
             console.log(data.ff_count);
-            return(
-                <Text>
-                    x : {data.ff_count}
-                    y : {data.no_min}
-                </Text>
-            )
-        })
-        let sampleData = [
             {
-                seriesName: 'series1',
-                data: [
-                    {x: 'ff_count', y:  10},
-                    {x: 'zoom', y: 200},
-                ],
-                color: '#297AB1'
+                obj.seriesName ='series1';
+                obj.color ='#297AB1';
+                obj.data=[{x:'ff_count',y:data.ff_count}];
+                this.state.sampleData.push(obj);
             }
-        ];
+
+        });
+        // let sampleData = [
+        //     {
+        //         seriesName: 'series1',
+        //         data: [
+        //             {x: 'ff_count', y:  10},
+        //             {x: 'zoom', y: 200},
+        //         ],
+        //         color: '#297AB1'
+        //     }
+        // ];
         return (
             <View style={styles.mainView}>
-                <PureChart data={sampleData} type='bar' />
+                <PureChart data={this.state.sampleData} type='bar' />
                 {
                     this.dataFunction()
                 }

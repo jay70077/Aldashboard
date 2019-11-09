@@ -1,13 +1,13 @@
 {
   "data": [
     {
-      "ff_count": "421",
+      "ff_count": 421,
       "no_min": "3251.2",
       "training_mode": "1"
     },
     {
-      "ff_count": "7",
-      "no_min": "1800",
+      "ff_count": 7,
+      "no_min": 1800,
       "training_mode": "2"
     }
   ],
