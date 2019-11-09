@@ -43,8 +43,8 @@ export default class BarChart extends Component {
     }
 
     render(){
-        var obj ={};
         myData.data.map((data)=>{
+            var obj ={};
             console.log(data.ff_count);
             {
                 obj.seriesName ='series1';
@@ -66,7 +66,7 @@ export default class BarChart extends Component {
         // ];
         return (
             <View style={styles.mainView}>
-                <PureChart data={this.state.sampleData} type='bar' />
+                <PureChart width:300 data={this.state.sampleData} type='bar' />
                 {
                     this.dataFunction()
                 }
