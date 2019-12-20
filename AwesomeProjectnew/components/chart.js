@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import Myheader from './Header';
 import BarChart from "./BarChart";
+import Table from './table'
 export default class ChartData extends Component {
     render(){
 
@@ -29,12 +30,8 @@ export default class ChartData extends Component {
                     <Text>
                         Chart2
                     </Text>
-                    {/*<Pie*/}
-                    {/*    radius={100}*/}
-                    {/*    series={[10, 20, 30, 40]}*/}
-                    {/*    colors={['red', 'lime', 'blue', 'yellow']} />*/}
-
                         <BarChart/>
+                        <Table/>
                 </View>
             </ScrollView>
         );
