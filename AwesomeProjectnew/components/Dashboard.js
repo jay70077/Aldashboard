@@ -156,7 +156,6 @@ render() {
                             accessibilityLabel="Yearly"
                             style={styles.buttonStyle}
                             color={"#00bfff"}
-                            onPress={}
 
                         />
                     </View>
@@ -166,7 +165,6 @@ render() {
                             accessibilityLabel="Quaterly"
                             style={styles.buttonStyle}
                             color={"#00bfff"}
-                            onPress={}
 
                         />
                     </View>
@@ -176,7 +174,6 @@ render() {
                             accessibilityLabel="Yearly"
                             style={styles.buttonStyle}
                             color={"#00bfff"}
-                            onPress={}
 
                         />
                     </View>
