@@ -11,17 +11,17 @@
       "training_mode": "2"
     },
     {
-      "ff_count": 0,
+      "ff_count": 200,
       "no_min": 1800,
       "training_mode": "2"
     },
     {
-      "ff_count": 0,
+      "ff_count": 100,
       "no_min": 1800,
       "training_mode": "2"
     },
     {
-      "ff_count": 2,
+      "ff_count": 300,
       "no_min": 1800,
       "training_mode": "2"
     }

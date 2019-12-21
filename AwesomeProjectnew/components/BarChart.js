@@ -16,6 +16,7 @@ import {
     View,
     Text,
     Button,
+    Dimensions,
     FlatList
 } from 'react-native';
 
@@ -42,7 +43,13 @@ export default class BarChart extends Component {
         });
         return (
             <View style={styles.mainView}>
-                <PureChart style={styles.chart} data={this.state.sampleData} type='bar' />
+                <PureChart
+                 defaultColumnWidth={Dimensions.get('window').width}
+                 data={this.state.sampleData}
+                 type='bar'
+                 height={400}
+                 color={'#00bfff'}
+                />
             </View>
         );
 
@@ -55,10 +62,13 @@ const styles = StyleSheet.create({
     mainView:{
         flex:1,
         justifyContent:'center',
-        paddingTop:50
+        paddingTop:10,
+        paddingRight:15,
     },
     chart: {
-        height: 300,
+        height: 500,
+        width:400,
         marginTop: 50,
+        paddingTop: 50
     },
 });

@@ -44,9 +44,9 @@ export default class ChartData extends Component {
 
 const styles = StyleSheet.create({
     mainView:{
-        flex:1,
         justifyContent:'center',
-        paddingLeft:15
+        paddingLeft:15,
+        paddingBottom:30
     },
     mainBox:{
         flex:1,
