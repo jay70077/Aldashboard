@@ -26,25 +26,25 @@
       "training_mode": "2"
     }
   ],
-  "data2": [
+  "dataSecond": [
     {
-      "ff_count": "4",
+      "ff_count": 4,
       "training_event": "1"
     },
     {
-      "ff_count": "105",
+      "ff_count": 105,
       "training_event": "3"
     },
     {
-      "ff_count": "12",
+      "ff_count": 12,
       "training_event": "8"
     },
     {
-      "ff_count": "7",
+      "ff_count": 7,
       "training_event": "10"
     },
     {
-      "ff_count": "300",
+      "ff_count": 300,
       "training_event": "11"
     }
   ],

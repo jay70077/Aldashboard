@@ -59,7 +59,7 @@ export default class Table extends Component {
     };
      render(){
         return (
-            <View>
+            <View style={styles.mainView}>
                 <View style={styles.tables}>
                     <View style={styles.tableTh}>
                         <Text style={styles.tableBorderView}>
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     mainView:{
         flex:1,
         justifyContent:'center',
-        paddingTop:50
+        paddingTop:10
     },
     chart: {
         width: 200,

@@ -20,7 +20,7 @@ import {
     FlatList
 } from 'react-native';
 
-export default class BarChart extends Component {
+export default class BarChart2 extends Component {
     constructor(props) {
         super(props);
         this.state={
@@ -30,13 +30,13 @@ export default class BarChart extends Component {
 
 
     render(){
-        myData.data.map((data)=>{
+        myData.dataSecond.map((data)=>{
             var obj ={};
             console.log(data.ff_count);
             {
                 obj.seriesName ='series1';
                 obj.color ='#00bfff';
-                obj.data=[{x:'ff_count',y:data.ff_count}];
+                obj.data=[{x:'f2f_count',y:data.ff_count}];
                 this.state.sampleData.push(obj);
             }
 
@@ -44,11 +44,11 @@ export default class BarChart extends Component {
         return (
             <View style={styles.mainView}>
                 <PureChart
-                 defaultColumnWidth={Dimensions.get('window').width}
-                 data={this.state.sampleData}
-                 type='bar'
-                 height={250}
-                 color={'#00bfff'}
+                    defaultColumnWidth={Dimensions.get('window').width}
+                    data={this.state.sampleData}
+                    type='bar'
+                    height={250}
+                    color={'red'}
                 />
             </View>
         );

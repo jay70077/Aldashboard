@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import Myheader from './Header';
 import BarChart from "./BarChart";
+import BarChart2 from "./BarChart2";
 import Table from './table'
 export default class ChartData extends Component {
     render(){
@@ -27,10 +28,17 @@ export default class ChartData extends Component {
             <ScrollView>
                 <Myheader passNavData={this.props.navigation}/>
                 <View style={styles.mainView}>
-                    <Text>
-                        Chart2
+                    <Text style={styles.textView}>
+                       FF-Count
                     </Text>
                         <BarChart/>
+                    <Text style={styles.textView}>
+                        FF-Count
+                    </Text>
+                        <BarChart2/>
+                    <Text style={styles.textView}>
+                       Event Details
+                    </Text>
                         <Table/>
                 </View>
             </ScrollView>
@@ -46,7 +54,8 @@ const styles = StyleSheet.create({
     mainView:{
         justifyContent:'center',
         paddingLeft:15,
-        paddingBottom:30
+        paddingBottom:30,
+        backgroundColor:'white'
     },
     mainBox:{
         flex:1,
@@ -78,6 +87,10 @@ const styles = StyleSheet.create({
         position:'relative',
         right:10,
 
+    },
+    textView:{
+        fontWeight:'800',
+        color:'black'
     }
 
 });
