@@ -47,7 +47,7 @@ export default class BarChart extends Component {
                  defaultColumnWidth={Dimensions.get('window').width}
                  data={this.state.sampleData}
                  type='bar'
-                 height={250}
+                 height={200}
                  color={'#00bfff'}
                 />
             </View>
