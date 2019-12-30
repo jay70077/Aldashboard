@@ -30,7 +30,7 @@ import Myheader from './Header'
 import { Icon, Picker, Form } from "native-base";
 import TableData from "./tableData";
 
-export default class Dashboard extends Component {
+export default class CompositeDashboard extends Component {
    constructor(props) {
        super(props);
        this.state = {
@@ -178,7 +178,7 @@ render() {
                 </View>
                 <View style={{flex:1,flexDirection: 'row'}}>
 					<View style={styles.mainBox}>
-						<Text style={styles.myText}> Total Number of People Impacted</Text>
+						<Text style={styles.myText}> Total no of people impacted CRT + OJT</Text>
 						<Text style={styles.myValue}>
 							300
 							{dataRows.length ==0  ? '' :  dataRows.ff_count}
@@ -186,7 +186,7 @@ render() {
 					</View>
 					
 					<View style={styles.mainBox}>
-						<Text style={styles.myText}> F2F</Text>
+						<Text style={styles.myText}> Percentage of people impacted</Text>
 						<Text style={styles.myValue}>
 							300
 							{ dataRows.length ==0  ? '' : dataRows.f2f_count}
@@ -196,7 +196,14 @@ render() {
 				
                 <View style={{flex:2,flexDirection: 'row'}}>
 					<View style={styles.mainBox}>
-						<Text style={styles.myText}> Digital</Text>
+						<Text style={styles.myText}> Percentage of People impacted F2F</Text>
+						<Text style={styles.myValue}>
+							120
+							{ dataRows.length ==0  ? '' : dataRows.digital_count}
+						</Text>
+					</View>
+					<View style={styles.mainBox}>
+						<Text style={styles.myText}> Percentage of people impacted Digital</Text>
 						<Text style={styles.myValue}>
 							120
 							{ dataRows.length ==0  ? '' : dataRows.digital_count}
