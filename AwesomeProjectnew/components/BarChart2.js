@@ -19,6 +19,7 @@ import {
     Dimensions,
     FlatList
 } from 'react-native';
+import ApiIntegration from "../Utils/ApiIntegration";
 
 export default class BarChart2 extends Component {
     constructor(props) {
@@ -27,20 +28,36 @@ export default class BarChart2 extends Component {
             sampleData:[]
         }
     }
-
+    componentDidMount(){
+        ApiIntegration.trainGraph()
+            .then((response)=>{
+                response.data.map((data)=>{
+                    var obj ={};
+                    console.log(data.ff_count);
+                    {
+                        obj.seriesName ='series1';
+                        obj.color ='#00bfff';
+                        obj.data=[{x:'ff_count',y:data.ff_count}];
+                        this.state.sampleData.push(obj);
+                    }
+                })
+            }).catch((error)=>{
+            console.log('error',error);
+        })
+    }
 
     render(){
-        myData.dataSecond.map((data)=>{
-            var obj ={};
-            console.log(data.ff_count);
-            {
-                obj.seriesName ='series1';
-                obj.color ='#00bfff';
-                obj.data=[{x:'f2f_count',y:data.ff_count}];
-                this.state.sampleData.push(obj);
-            }
-
-        });
+        // myData.dataSecond.map((data)=>{
+        //     var obj ={};
+        //     console.log(data.ff_count);
+        //     {
+        //         obj.seriesName ='series1';
+        //         obj.color ='#00bfff';
+        //         obj.data=[{x:'f2f_count',y:data.ff_count}];
+        //         this.state.sampleData.push(obj);
+        //     }
+        //
+        // });
         return (
             <View style={styles.mainView}>
                 <PureChart

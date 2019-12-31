@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import PureChart from 'react-native-pure-chart';
 const myData = require( '../Utils/data.json');
+import ApiIntegration from '../Utils/ApiIntegration'
 import {
     SafeAreaView,
     StyleSheet,
@@ -27,20 +28,35 @@ export default class BarChart extends Component {
             sampleData:[]
         }
     }
-
-
+    componentDidMount(){
+         ApiIntegration.trainGraph()
+             .then((response)=>{
+                 response.data.map((data)=>{
+                     var obj ={};
+                     console.log(data.ff_count);
+                     {
+                         obj.seriesName ='series1';
+                         obj.color ='#00bfff';
+                         obj.data=[{x:'ff_count',y:data.ff_count}];
+                         this.state.sampleData.push(obj);
+                     }
+                 })
+             }).catch((error)=>{
+               console.log('error',error);
+         })
+     }
     render(){
-        myData.data.map((data)=>{
-            var obj ={};
-            console.log(data.ff_count);
-            {
-                obj.seriesName ='series1';
-                obj.color ='#00bfff';
-                obj.data=[{x:'ff_count',y:data.ff_count}];
-                this.state.sampleData.push(obj);
-            }
-
-        });
+        // myData.data.map((data)=>{
+        //     var obj ={};
+        //     console.log(data.ff_count);
+        //     {
+        //         obj.seriesName ='series1';
+        //         obj.color ='#00bfff';
+        //         obj.data=[{x:'ff_count',y:data.ff_count}];
+        //         this.state.sampleData.push(obj);
+        //     }
+        //
+        // });
         return (
             <View style={styles.mainView}>
                 <PureChart
