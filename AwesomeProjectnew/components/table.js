@@ -18,6 +18,7 @@ import {
     Button,
     FlatList
 } from 'react-native';
+import ApiIntegration from "../Utils/ApiIntegration";
 
 export default class Table extends Component {
     constructor(props) {
@@ -26,7 +27,16 @@ export default class Table extends Component {
             sampleData:[]
         }
     }
-
+    componentDidMount(){
+        ApiIntegration.trainGraph()
+            .then((response)=>{
+                this.setState({
+                    sampleData:response.data
+                });
+            }).catch((error)=>{
+            console.log('error',error);
+        })
+    }
     renderItem(data) {
         console.log('data',data);
         return(
@@ -86,7 +96,7 @@ export default class Table extends Component {
                     </View>
                     <View style={styles.flatlist}>
                 <FlatList
-                    data={myData.data3.data}
+                    data={this.state.sampleData}
                     horizontal={true}
                     renderItem={(data) => this.renderItem(data)}/>
                 </View>
