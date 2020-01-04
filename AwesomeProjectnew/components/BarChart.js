@@ -28,18 +28,27 @@ export default class BarChart extends Component {
             sampleData:[]
         }
     }
-    componentDidMount(){
+    componentDidMount (){
          ApiIntegration.trainGraph()
              .then((response)=>{
-                 response.data.map((data)=>{
+                 var resposneNew = response.data;
+                 console.log('responseNew',resposneNew);
+                 resposneNew.map((data)=>{
                      var obj ={};
                      console.log(data.ff_count);
                      {
                          obj.seriesName ='series1';
                          obj.color ='#00bfff';
-                         obj.data=[{x:'ff_count',y:data.ff_count}];
-                         this.state.sampleData.push(obj);
+                         var number = parseInt(data.ff_count);
+                         obj.data=[{x:'ff_count',y:number}];
+                         console.log('graphdata',data.ff_count);
+                         //this.state.sampleData.push(obj);
+                         this.setState(prevState => ({
+                             sampleData: [...prevState.sampleData, obj]
+                         }))
+                         console.log('this.state.sampleData',this.state.sampleData);
                      }
+
                  })
              }).catch((error)=>{
                console.log('error',error);
@@ -54,9 +63,11 @@ export default class BarChart extends Component {
         //         obj.color ='#00bfff';
         //         obj.data=[{x:'ff_count',y:data.ff_count}];
         //         this.state.sampleData.push(obj);
+        // console.log('this.state.sampleData',this.state.sampleData);
         //     }
         //
         // });
+        console.log('sampleDatarender',this.state.sampleData);
         return (
             <View style={styles.mainView}>
                 <PureChart

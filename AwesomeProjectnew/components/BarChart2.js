@@ -37,8 +37,11 @@ export default class BarChart2 extends Component {
                     {
                         obj.seriesName ='series1';
                         obj.color ='#00bfff';
-                        obj.data=[{x:'ff_count',y:data.ff_count}];
-                        this.state.sampleData.push(obj);
+                        var number = parseInt(data.ff_count);
+                        obj.data=[{x:'ff_count',y:number}];
+                        this.setState(prevState => ({
+                            sampleData: [...prevState.sampleData, obj]
+                        }))
                     }
                 })
             }).catch((error)=>{
