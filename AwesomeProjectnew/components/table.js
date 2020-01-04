@@ -28,17 +28,18 @@ export default class Table extends Component {
         }
     }
     componentDidMount(){
-        ApiIntegration.trainGraph()
+        ApiIntegration.trainTableAllParams()
             .then((response)=>{
                 this.setState({
-                    sampleData:response.data
+                    sampleData:response.data.data
                 });
+                console.log('sampleDatasampleDatasampleDatasampleData',response.data)
             }).catch((error)=>{
             console.log('error',error);
         })
     }
     renderItem(data) {
-        console.log('data',data);
+        console.log('datatable',data);
         return(
             <View>
                   <Text style={styles.tableBorder}>
@@ -64,7 +65,6 @@ export default class Table extends Component {
                 </Text>
             </View>
         )
-        console.warn('data',data);
 
     };
      render(){
