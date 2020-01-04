@@ -26,6 +26,7 @@ export default {
             url: 'http://ec2-52-87-187-122.compute-1.amazonaws.com/api/v1/dashboard/get-stats?sel_type=m&users='+value
         });
     },
+	//#AL Training Report Starts
     trainGraph(){
         return axios({
             method: 'get',
@@ -49,7 +50,22 @@ export default {
             method: 'get',
             url: 'http://ec2-52-87-187-122.compute-1.amazonaws.com/api/v1/reports/get/participants/trainings/ajax?uid=1&month=6&year=2019'
         });
-    }
+    },
+	trainTableAll(){
+        return axios({
+            method: 'get',
+            url: 'http://ec2-52-87-187-122.compute-1.amazonaws.com/api/v1/reports/get/trainings/all'
+        });
+    },
+	trainTableAllParams(){
+        return axios({
+            method: 'get',
+            url: 'http://ec2-52-87-187-122.compute-1.amazonaws.com/api/v1/reports/get/trainings/all/ajax?uid=1&month=6&year=2019'
+        });
+    },
+	//#AL Training Report Ends
+	
+	
 	
 	
 	
