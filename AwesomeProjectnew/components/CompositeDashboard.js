@@ -180,7 +180,6 @@ render() {
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> Total no of people impacted CRT + OJT</Text>
 						<Text style={styles.myValue}>
-							300
 							{dataRows.length ==0  ? '' :  dataRows.ff_count}
 						</Text>
 					</View>
@@ -188,7 +187,6 @@ render() {
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> Percentage of people impacted</Text>
 						<Text style={styles.myValue}>
-							300
 							{ dataRows.length ==0  ? '' : dataRows.f2f_count}
 						</Text>
 					</View>
@@ -198,14 +196,12 @@ render() {
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> Percentage of People impacted F2F</Text>
 						<Text style={styles.myValue}>
-							120
 							{ dataRows.length ==0  ? '' : dataRows.digital_count}
 						</Text>
 					</View>
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> Percentage of people impacted Digital</Text>
 						<Text style={styles.myValue}>
-							120
 							{ dataRows.length ==0  ? '' : dataRows.digital_count}
 						</Text>
 					</View>

@@ -91,6 +91,7 @@ export default class Dashboard extends Component {
                     mydata:response.data
                 }, () => {
                     console.log(this.state.mydata, 'mydata');
+					console.log('This is a test message!!!');
                 });
             }).catch((err)=>{
             console.log('error',err);
@@ -100,6 +101,7 @@ export default class Dashboard extends Component {
 
 render() {
     var dataRows = this.state.mydata;
+	
     return (
         <ScrollView>
             <Myheader passNavData={this.props.navigation}/>
@@ -116,26 +118,28 @@ render() {
                     <Picker.Item label="Varun Ramesh" value="2" />
                 </Picker>
             </View>
+			
+			<View>
+			
+			</View>
             <View style={styles.boxDropdown}>
                 <Picker
                     mode="dropdown"
-                    iosHeader="Select your SIM"
+                    iosHeader="Select BU"
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected1}
                     onValueChange={this.onValueChange1}
                 >
-
+				
                     <Picker.Item label="All BUs" value="0" />
-                    <Picker.Item label="EP" value="2" />
-                    <Picker.Item label="CHC" value="4" />
-                    <Picker.Item label="Pasteur/Super specialty" value="3" />
+					
                 </Picker>
             </View>
             <View style={styles.boxDropdown}>
                 <Picker
                     mode="dropdown"
-                    iosHeader="Select your SIM"
+                    iosHeader="Select TA"
                     iosIcon={<Icon name="arrow-dropdown-circle" style={{ color: "#007aff", fontSize: 25 }} />}
                     style={{ width: undefined }}
                     selectedValue={this.state.selected2}
@@ -180,7 +184,6 @@ render() {
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> Total Number of People Impacted</Text>
 						<Text style={styles.myValue}>
-							300
 							{dataRows.length ==0  ? '' :  dataRows.ff_count}
 						</Text>
 					</View>
@@ -188,7 +191,6 @@ render() {
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> F2F</Text>
 						<Text style={styles.myValue}>
-							300
 							{ dataRows.length ==0  ? '' : dataRows.f2f_count}
 						</Text>
 					</View>
@@ -198,7 +200,6 @@ render() {
 					<View style={styles.mainBox}>
 						<Text style={styles.myText}> Digital</Text>
 						<Text style={styles.myValue}>
-							120
 							{ dataRows.length ==0  ? '' : dataRows.digital_count}
 						</Text>
 					</View>
